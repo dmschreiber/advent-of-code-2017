@@ -12,4 +12,5 @@ if __name__ == '__main__':
     print("Day 2 part 2:" + day2.part2(day2_input))
 
     print("Day 3 part 1:" + str(day3.part1(368078)))
+    print("Day 3 part 2:" + str(day3.part2(368078)))
 

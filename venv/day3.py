@@ -40,14 +40,73 @@ def part1(input):
 
 
 def sum_neighbors(grid, pos):
-    x, y = pos
+    row, col = pos
+    sum = 0
 
-    
-    return grid[(x-1,y)] + grid[(x,y)] + grid[(x+1,y)] + grid[(x-1,y-1)] + grid[(x,y-1)] + grid[(x+1,y-1)] + grid[(x-1,y+1)] + grid[(x,y+1)] + grid[(x+1,y+1)]
+    for i in [-1,0,1] :
+        for j in [-1, 0, 1] :
+            if grid.keys().__contains__((row+i,col+j)) :
+                if i != 0 or j != 0 :
+                    # print("checking {},{} is {}".format(row+i, col+j, grid[(row+i,col+j)]))
+                    sum = sum + grid[(row+i,col+j)]
+
+    return sum
 
 def part2(input):
+     # grid [(row,col)]
     grid = {}
     grid [(0,0)] = 1
-    grid [(0,1)] = sum_neighbors(grid,(0,1))
+    grid [(0,1)] = 1
+    grid [(1,1)] = 2
+    grid [(1,0)] = 4
+    grid [(1,-1)] = 5
+    grid [(0,-1)] = 10
+    grid [(-1,-1)] = 11
+    grid [(-1,0)] = 23
+    grid [(-1,1)] = 25
 
-    return grid[0,1]
+    size = 4
+    pos = (-1,2)
+    while True:
+        print("Beginning pos is {}".format(pos))
+
+        # Right side
+        for i in range(0,size-1) :
+            grid[pos] = sum_neighbors(grid, pos)
+            if grid[pos] > input :
+                return grid[pos]
+            pos = (pos[0] + 1, pos[1])
+            print("New pos is {} - {}".format(pos, sum_neighbors(grid,pos)))
+
+        # Top
+        for i in range(0,size) :
+            grid[pos] = sum_neighbors(grid, pos)
+            if grid[pos] > input :
+                return grid[pos]
+            pos = (pos[0],pos[1]-1)
+            print("New pos is {} - {}".format(pos, sum_neighbors(grid,pos)))
+
+        # Left
+        for i in range(0,size) :
+            grid[pos] = sum_neighbors(grid, pos)
+            if grid[pos] > input :
+                return grid[pos]
+            pos = (pos[0]-1,pos[1])
+            print("New pos is {} - {}".format(pos, sum_neighbors(grid,pos)))
+
+        # Bottom
+        for i in range(0,size) :
+            grid[pos] = sum_neighbors(grid, pos)
+            if grid[pos] > input :
+                return grid[pos]
+            pos = (pos[0],pos[1]+1)
+            print("New pos is {} - {}".format(pos, sum_neighbors(grid,pos)))
+
+        grid[pos] = sum_neighbors(grid, pos)
+        if grid[pos] > input:
+            return grid[pos]
+        pos = (pos[0],pos[1]+1)
+        size = size + 2
+
+    # Too high - 522596
+    # Too high - 451619

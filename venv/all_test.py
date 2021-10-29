@@ -9,7 +9,10 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(day3.part1(16), 3)
         self.assertEqual(day3.part1(23), 2)
         self.assertEqual(day3.part1(1024), 31)
-        self.assertEqual(day3.part2(1024),1)
+        self.assertEqual(day3.part2(27), 54)
+        self.assertEqual(day3.part2(122), 133)
+        self.assertEqual(day3.part2(330), 351)
+        self.assertEqual(day3.part2(747), 806)
 
 
 if __name__ == '__main__':
