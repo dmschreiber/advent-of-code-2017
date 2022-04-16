@@ -68,7 +68,7 @@ def part2(input):
     size = 4
     pos = (-1,2)
     while True:
-        print("Beginning pos is {}".format(pos))
+        # print("Beginning pos is {}".format(pos))
 
         # Right side
         for i in range(0,size-1) :
@@ -76,7 +76,7 @@ def part2(input):
             if grid[pos] > input :
                 return grid[pos]
             pos = (pos[0] + 1, pos[1])
-            print("New pos is {} - {}".format(pos, sum_neighbors(grid,pos)))
+            # print("New pos is {} - {}".format(pos, sum_neighbors(grid,pos)))
 
         # Top
         for i in range(0,size) :
@@ -84,7 +84,7 @@ def part2(input):
             if grid[pos] > input :
                 return grid[pos]
             pos = (pos[0],pos[1]-1)
-            print("New pos is {} - {}".format(pos, sum_neighbors(grid,pos)))
+            # print("New pos is {} - {}".format(pos, sum_neighbors(grid,pos)))
 
         # Left
         for i in range(0,size) :
@@ -92,7 +92,7 @@ def part2(input):
             if grid[pos] > input :
                 return grid[pos]
             pos = (pos[0]-1,pos[1])
-            print("New pos is {} - {}".format(pos, sum_neighbors(grid,pos)))
+            # print("New pos is {} - {}".format(pos, sum_neighbors(grid,pos)))
 
         # Bottom
         for i in range(0,size) :
@@ -100,7 +100,7 @@ def part2(input):
             if grid[pos] > input :
                 return grid[pos]
             pos = (pos[0],pos[1]+1)
-            print("New pos is {} - {}".format(pos, sum_neighbors(grid,pos)))
+            # print("New pos is {} - {}".format(pos, sum_neighbors(grid,pos)))
 
         grid[pos] = sum_neighbors(grid, pos)
         if grid[pos] > input:
