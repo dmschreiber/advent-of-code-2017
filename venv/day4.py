@@ -28,7 +28,6 @@ def part1(input):
         if part1_validate(l):
             valid_passwords += 1
 
-    print("Valid passwords: {}".format(valid_passwords))
     return valid_passwords
 
 def part2(input):
@@ -39,9 +38,7 @@ def part2(input):
 
     for l in input_lines:
         if part1_validate(l) & part2_validate(l):
-            print("Valid passphrase: {}".format(l))
+            # print("Valid passphrase: {}".format(l))
             valid_passwords += 1
-        else:
-            print("Invalid passphrase: {}".format(l))
-    #334 too high
+
     return valid_passwords
