@@ -33,3 +33,4 @@ if __name__ == '__main__':
 
     day7_input = "./data/day7_input.txt"
     print("Day 7 part 1: {}".format(day7.part1(day7_input)))
+    day7.part2(day7_input)

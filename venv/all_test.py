@@ -29,6 +29,7 @@ class MyTestCase(unittest.TestCase):
     def test_day7(self):
         input = "./data/day7_test.txt"
         self.assertEqual(day7.part1(input),"tknk")
+        self.assertEqual(day7.part2(input),60)
 
 if __name__ == '__main__':
     unittest.main()
