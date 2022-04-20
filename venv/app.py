@@ -27,3 +27,4 @@ if __name__ == '__main__':
 
     day6_input = "4	1	15	12	0	9	9	5	5	8	7	3	14	5	12	3"
     print("Day 6 part 1: {}".format(day6.part1(day6_input)))
+    print("Day 6 part 2: {}".format(day6.part2(day6_input)))

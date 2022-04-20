@@ -24,6 +24,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(day6.redistribute("0 2 3 4"),"1 3 4 1")
         self.assertEqual(day6.redistribute("1 3 4 1"),"2 4 1 2")
         self.assertEqual(day6.part1(input),5)
+        self.assertEqual(day6.part2(input),4)
 
 if __name__ == '__main__':
     unittest.main()

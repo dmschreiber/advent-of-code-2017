@@ -48,3 +48,20 @@ def part1(input):
         loop_count = loop_count + 1
 
     return loop_count
+
+def part2(input):
+    history = []
+
+
+    current_state = input
+    while not current_state in history:
+        history.insert(0,current_state)
+        current_state = redistribute(current_state)
+
+    loop_size = 0
+    for item in history:
+        loop_size = loop_size + 1
+        if item == current_state:
+            return loop_size
+
+    return loop_size
