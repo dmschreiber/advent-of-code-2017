@@ -2,7 +2,7 @@ import unittest
 import day4
 import day5
 import day6
-
+import day7
 
 class MyTestCase(unittest.TestCase):
     def test_day4(self):
@@ -25,6 +25,10 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(day6.redistribute("1 3 4 1"),"2 4 1 2")
         self.assertEqual(day6.part1(input),5)
         self.assertEqual(day6.part2(input),4)
+
+    def test_day7(self):
+        input = "./data/day7_test.txt"
+        self.assertEqual(day7.part1(input),"tknk")
 
 if __name__ == '__main__':
     unittest.main()
