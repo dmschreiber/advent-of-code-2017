@@ -4,6 +4,7 @@ import day5
 import day6
 import day7
 import day8
+import day9
 
 class MyTestCase(unittest.TestCase):
     def test_day4(self):
@@ -36,6 +37,19 @@ class MyTestCase(unittest.TestCase):
         input = "./data/day8_test.txt"
         self.assertEqual(day8.part1(input),1)
         self.assertEqual(day8.part2(input),10)
+
+    def test_day9(self):
+        self.assertEqual(day9.score("{}"),1)
+        self.assertEqual(day9.score("{{{}}},"),6)
+        self.assertEqual(day9.score("{{},{}}"),5)
+        self.assertEqual(day9.score("{{{},{},{{}}}}"),16)
+        self.assertEqual(day9.score("{<a>,<a>,<a>,<a>}"),1)
+        self.assertEqual(day9.score("{{<ab>},{<ab>},{<ab>},{<ab>}}"),9)
+        self.assertEqual(day9.score("{{<!!>},{<!!>},{<!!>},{<!!>}}"),9)
+        self.assertEqual(day9.score("{{<a!>},{<a!>},{<a!>},{<ab>}}"),3)
+
+        self.assertEqual(day9.score("<!!!>>", False),0)
+        self.assertEqual(day9.score("<{o\"i!a,<{i<a>", False),10)
 
 if __name__ == '__main__':
     unittest.main()
