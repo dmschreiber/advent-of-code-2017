@@ -5,6 +5,8 @@ import day6
 import day7
 import day8
 import day9
+import day10
+
 
 class MyTestCase(unittest.TestCase):
     def test_day4(self):
@@ -50,6 +52,13 @@ class MyTestCase(unittest.TestCase):
 
         self.assertEqual(day9.score("<!!!>>", False),0)
         self.assertEqual(day9.score("<{o\"i!a,<{i<a>", False),10)
+
+    def test_day10(self):
+        self.assertEqual(day10.part1("3,4,1,5",5),12)
+        self.assertEqual(day10.get_part2_lengths("1,2,3"),[49,44,50,44,51,17, 31, 73, 47, 23])
+        nums = [    65 , 27 , 9 , 1 , 4 , 3 , 40 , 50 , 91 , 7 , 6 , 0 , 2 , 5 , 68 , 22]
+        self.assertEqual(day10.sparce_hash(nums),64)
+        self.assertEqual(day10.part2("1,2,3",256),"3efbe78a8d82f29979031a4aa0b16a9d")
 
 if __name__ == '__main__':
     unittest.main()
