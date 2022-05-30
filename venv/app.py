@@ -69,3 +69,4 @@ if __name__ == '__main__':
 
     day14_input = "stpzcrnm"
     print("day 14 part 1: {}".format(day14.part1(day14_input)))
+    print("day 14 part 2: {}".format(day14.part2(day14_input)))

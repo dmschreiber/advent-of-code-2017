@@ -87,6 +87,7 @@ class MyTestCase(unittest.TestCase):
     def test_day14(self):
         input = "flqrgnkx"
         self.assertEqual(day14.part1(input),8108);
+        self.assertEqual(day14.part2(input),1242)
 
 if __name__ == '__main__':
     unittest.main()
