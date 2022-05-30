@@ -6,6 +6,7 @@ import day7
 import day8
 import day9
 import day10
+import day11
 
 
 class MyTestCase(unittest.TestCase):
@@ -59,6 +60,13 @@ class MyTestCase(unittest.TestCase):
         nums = [    65 , 27 , 9 , 1 , 4 , 3 , 40 , 50 , 91 , 7 , 6 , 0 , 2 , 5 , 68 , 22]
         self.assertEqual(day10.sparce_hash(nums),64)
         self.assertEqual(day10.part2("1,2,3",256),"3efbe78a8d82f29979031a4aa0b16a9d")
+
+    def test_day11(self):
+        home = day11.PointHex(0,0)
+
+        self.assertEqual(day11.part1("ne,ne,ne"),3)
+        self.assertEqual(day11.part1("se,sw,se,sw,sw"),3)
+        self.assertEqual(day11.part1("se,sw,se,sw,sw"),3)
 
 if __name__ == '__main__':
     unittest.main()
