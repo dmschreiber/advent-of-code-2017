@@ -8,6 +8,7 @@ import day9
 import day10
 import day11
 import day12
+import day13
 
 
 class MyTestCase(unittest.TestCase):
@@ -73,6 +74,10 @@ class MyTestCase(unittest.TestCase):
         input = "./data/day12_test.txt"
         self.assertEqual(day12.part1(input),6)
         self.assertEqual(day12.part2(input),2)
+
+    def test_day13(self):
+        input = "./data/day13_test.txt"
+        self.assertEqual(day13.part1(input),24)
 
 if __name__ == '__main__':
     unittest.main()
