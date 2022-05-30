@@ -15,7 +15,7 @@ def part1(input):
 
         if second in scan.keys():
             if (second) % (2 * scan[second] - 2) == 0 :
-                print("Second {} caught".format(second))
+                # print("Second {} caught".format(second))
                 damage = damage + second * scan[second]
 
     return damage
