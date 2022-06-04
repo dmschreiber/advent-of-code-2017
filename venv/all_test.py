@@ -11,6 +11,8 @@ import day11
 import day12
 import day13
 import day14
+import day15
+
 
 class MyTestCase(unittest.TestCase):
     def test_day4(self):
@@ -88,6 +90,18 @@ class MyTestCase(unittest.TestCase):
         input = "flqrgnkx"
         self.assertEqual(day14.part1(input),8108);
         self.assertEqual(day14.part2(input),1242)
+
+    def test_day15(self):
+        self.assertEqual(day15.part1(65,8921,5),1)
+        start_time = time.perf_counter()
+        # self.assertEqual(day15.part1(65, 8921, 40000000), 588)
+        end_time = time.perf_counter()
+        # print(f"Day 15 execution Time : {end_time - start_time:0.6f}s")
+        self.assertEqual(day15.part2(65, 8921, 1057), 1)
+        start_time = time.perf_counter()
+        self.assertEqual(day15.part2(65, 8921, 5000000), 309)
+        end_time = time.perf_counter()
+        print(f"Day 15 execution Time : {end_time - start_time:0.6f}s")
 
 if __name__ == '__main__':
     unittest.main()
