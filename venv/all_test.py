@@ -84,7 +84,7 @@ class MyTestCase(unittest.TestCase):
         start_time = time.perf_counter()
         self.assertEqual(day13.part2(input),10)
         end_time = time.perf_counter()
-        print(f"Day 13 execution Time : {end_time - start_time:0.6f}s")
+        # print(f"Day 13 execution Time : {end_time - start_time:0.6f}s")
 
     def test_day14(self):
         input = "flqrgnkx"
@@ -94,9 +94,9 @@ class MyTestCase(unittest.TestCase):
     def test_day15(self):
         self.assertEqual(day15.part1(65,8921,5),1)
         start_time = time.perf_counter()
-        # self.assertEqual(day15.part1(65, 8921, 40000000), 588)
+        self.assertEqual(day15.part1(65, 8921, 40000000), 588)
         end_time = time.perf_counter()
-        # print(f"Day 15 execution Time : {end_time - start_time:0.6f}s")
+        print(f"Day 15 execution Time : {end_time - start_time:0.6f}s")
         self.assertEqual(day15.part2(65, 8921, 1057), 1)
         start_time = time.perf_counter()
         self.assertEqual(day15.part2(65, 8921, 5000000), 309)

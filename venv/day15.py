@@ -10,7 +10,7 @@ def part1(A,B,how_many):
         new_A = (new_A * A_multiplier) % mod_number
         new_B = (new_B * B_multiplier) % mod_number
 
-        if "{0:32b}".format(new_A)[16:] == "{0:32b}".format(new_B)[16:]:
+        if new_A & 65535 == new_B & 65535:
             # print("Found match")
             matches = matches + 1
 
@@ -42,7 +42,8 @@ def part2(A,B,how_many):
         new_A = get_next_number(new_A, A_multiplier, mod_number, 4)
         new_B = get_next_number(new_B, B_multiplier, mod_number, 8)
 
-        if "{0:32b}".format(new_A)[16:] == "{0:32b}".format(new_B)[16:]:
+        if new_A & 65535 == new_B & 65535:
+        # if "{0:32b}".format(new_A)[16:] == "{0:32b}".format(new_B)[16:]:
             # print("Found match on {}th".format(which))
             matches = matches + 1
 
