@@ -100,24 +100,21 @@ def part2(input):
 
     g = ProgramGroup(16)
     moves = []
-    digest_size = 400
-    total_dances = 1000000000
 
-    for j in range(digest_size):
-        for d in dance:
-            if d[0]=="s":
-                g.spin(int(d[1:]))
-                moves.append(Move(1,0,0,int(d[1:])))
+    for d in dance:
+        if d[0]=="s":
+            g.spin(int(d[1:]))
+            moves.append(Move(1,0,0,int(d[1:])))
 
-            elif d[0]=="x":
-                (a,b) = d[1:].split("/")
-                g.exchange(int(a),int(b))
-                moves.append(Move(2,int(a),int(b)))
+        elif d[0]=="x":
+            (a,b) = d[1:].split("/")
+            g.exchange(int(a),int(b))
+            moves.append(Move(2,int(a),int(b)))
 
-            elif d[0]=="p":
-                (a, b) = d[1:].split("/")
-                # print("Partner {} and {}".format(a,b))
-                moves.append(Move(3,a,b))
+        elif d[0]=="p":
+            (a, b) = d[1:].split("/")
+            # print("Partner {} and {}".format(a,b))
+            moves.append(Move(3,a,b))
 
     start = "abcdefghijklmnop"
     end = g.list()
@@ -133,15 +130,35 @@ def part2(input):
 
     partner_map = create_partner_map(start,next)
 
+    times = 10
+    for i in range(6): # a billion times 10^6
+        end = run_position_dance(start, reverse_map, times)
+        reverse_map = create_reverse_map(start,end)
+        end = run_partner_dance(start, partner_map, times)
+        partner_map = create_partner_map(start, end)
 
-    result = run_dance(start, reverse_map, partner_map, int(total_dances/digest_size))
+    result = run_dance(start, reverse_map, partner_map, 1)
+
     return result
 
 
 def run_dance(start, reverse_map, partner_map, times):
     next = start
+    next = run_position_dance(start, reverse_map, times)
+    next = run_partner_dance(next, partner_map, times)
+
+    return next
+
+def run_position_dance(start, reverse_map, times):
+    next = start
     for each_dance in range(int(times)):
         next = "".join(x for x in [next[reverse_map[i]] for i in range(len(next))])
+
+    return next
+
+def run_partner_dance(start, partner_map, times):
+    next = start
+    for each_dance in range(int(times)):
         next = "".join(x for x in [partner_map[c] for c in next])
 
     return next
