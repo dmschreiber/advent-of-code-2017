@@ -78,6 +78,20 @@ def part1(input):
 
     return g.list()
 
+def create_reverse_map(start,end):
+    reverse_map = {}
+    for i in range(len(start)):
+        reverse_map[end.find(start[i])] = i
+
+    return reverse_map
+
+def create_partner_map(start,end):
+    partner_map = {}
+    for i in range(len(start)):
+        partner_map[start[i]] = end[i]
+
+    return partner_map
+
 def part2(input):
     with open(input) as f:
         input_lines = f.read().splitlines()
@@ -107,11 +121,8 @@ def part2(input):
 
     start = "abcdefghijklmnop"
     end = g.list()
-    map = {}
-    reverse_map = {}
-    for i in range(len(start)):
-        map[i] = end.find(start[i])
-        reverse_map[map[i]] = i
+
+    reverse_map = create_reverse_map(start,end)
 
     next = start
     for m in moves:
@@ -120,13 +131,16 @@ def part2(input):
             next = next.replace(m.b, m.a)
             next = next.replace("Z", m.b)
 
-    partner_map = {}
-    for i in range(len(start)):
-        partner_map[start[i]] = next[i]
-        # print("Swap {} with {}".format(start[i],next[i]))
+    partner_map = create_partner_map(start,next)
 
+
+    result = run_dance(start, reverse_map, partner_map, int(total_dances/digest_size))
+    return result
+
+
+def run_dance(start, reverse_map, partner_map, times):
     next = start
-    for each_dance in range(int(total_dances/digest_size)):
+    for each_dance in range(int(times)):
         next = "".join(x for x in [next[reverse_map[i]] for i in range(len(next))])
         next = "".join(x for x in [partner_map[c] for c in next])
 
