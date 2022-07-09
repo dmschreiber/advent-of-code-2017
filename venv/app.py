@@ -14,6 +14,7 @@ import day13
 import day14
 import day15
 import day16
+import day17
 import time
 
 if __name__ == '__main__':
@@ -82,3 +83,11 @@ if __name__ == '__main__':
     print("day 16 part 2: {}".format(day16.part2(day16_input)))
     end_time = time.perf_counter()
     print(f"Day 16 part 1 execution Time : {end_time - start_time:0.6f}s")
+
+    start_time = time.perf_counter()
+    print("day 17 part 1: {}".format(day17.part1(2017,2017,335)))
+    print("day 17 part 1: {}".format(day17.part2(2017,2017,335)))
+    end_time = time.perf_counter()
+    print(f"Day 17 part 1 execution Time : {end_time - start_time:0.6f}s")
+    # print("day 17 part 2: {}".format(day17.part2(50000000,0,335)))
+

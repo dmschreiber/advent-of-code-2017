@@ -13,6 +13,7 @@ import day13
 import day14
 import day15
 import day16
+import day17
 
 
 class MyTestCase(unittest.TestCase):
@@ -105,7 +106,7 @@ class MyTestCase(unittest.TestCase):
     #     print(f"Day 15 execution Time : {end_time - start_time:0.6f}s")
 
     def test_day16(self):
-        l = day16.ProgramGroup(16)
+        l = day16.ProgramGroup(5)
         self.assertEqual(l.list(),"abcde")
         l.spin(1)
         self.assertEqual(l.list(),"eabcd")
@@ -113,6 +114,16 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(l.list(), "eabdc")
         l.partner("e","b")
         self.assertEqual(l.list(), "baedc")
+
+    def test_day17(self):
+        start_time = time.perf_counter()
+        self.assertEqual(day17.part1(2017,2017,3),638)
+        end_time = time.perf_counter()
+        print(f"Day 17 p1 execution Time : {end_time - start_time:0.6f}s")
+        start_time = time.perf_counter()
+        self.assertEqual(day17.part2(2017,2017,3),638)
+        end_time = time.perf_counter()
+        print(f"Day 17 p2 execution Time : {end_time - start_time:0.6f}s")
 
 
 if __name__ == '__main__':
