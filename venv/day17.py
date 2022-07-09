@@ -90,6 +90,21 @@ def part2(how_many,ending_number,input):
         if (i % 100000) == 0:
             end_time = time.perf_counter()
             print(f"{pos} - {i} ({end_time - start_time:0.6f}s)")
-
+            start_time = time.perf_counter()
 
     return find_neighbor(head, ending_number, size)
+
+def others_answer():
+    from collections import deque
+
+    start_time = time.perf_counter()
+    puzzle = 335
+    spinlock = deque([0])
+
+    for i in range(1, 50000001):
+        spinlock.rotate(-puzzle)
+        spinlock.append(i)
+
+    print(spinlock[spinlock.index(0) + 1])
+    end_time = time.perf_counter()
+    print(f"Day 17 part 2 execution Time : {end_time - start_time:0.6f}s")
