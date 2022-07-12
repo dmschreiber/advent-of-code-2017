@@ -15,6 +15,7 @@ import day14
 import day15
 import day16
 import day17
+import day18
 import time
 
 if __name__ == '__main__':
@@ -91,3 +92,6 @@ if __name__ == '__main__':
     print(f"Day 17 part 1 execution Time : {end_time - start_time:0.6f}s")
     # print("day 17 part 2: {}".format(day17.part2(50000000,0,335)))
 
+    day18_input = "./data/day18_input.txt"
+    print("day 18 part 1: {}".format(day18.part1(day18_input)))
+    print("day 18 part 2: {}".format(day18.part2(day18_input)))
