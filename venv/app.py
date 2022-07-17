@@ -16,6 +16,7 @@ import day15
 import day16
 import day17
 import day18
+import day19
 import time
 
 if __name__ == '__main__':
@@ -78,20 +79,24 @@ if __name__ == '__main__':
     # print("day 15 part 1: {}".format(day15.part1(783,325,40000000)))
     # print("day 15 part 2: {}".format(day15.part2(783,325,5000000)))
 
-    day16_input = "./data/day16_input.txt"
-    print("day 16 part 1: {}".format(day16.part1(day16_input)))
-    start_time = time.perf_counter()
-    print("day 16 part 2: {}".format(day16.part2(day16_input)))
-    end_time = time.perf_counter()
-    print(f"Day 16 part 1 execution Time : {end_time - start_time:0.6f}s")
-
-    start_time = time.perf_counter()
-    print("day 17 part 1: {}".format(day17.part1(2017,2017,335)))
-    print("day 17 part 1: {}".format(day17.part2(2017,2017,335)))
-    end_time = time.perf_counter()
-    print(f"Day 17 part 1 execution Time : {end_time - start_time:0.6f}s")
-    # print("day 17 part 2: {}".format(day17.part2(50000000,0,335)))
+    # day16_input = "./data/day16_input.txt"
+    # print("day 16 part 1: {}".format(day16.part1(day16_input)))
+    # start_time = time.perf_counter()
+    # print("day 16 part 2: {}".format(day16.part2(day16_input)))
+    # end_time = time.perf_counter()
+    # print(f"Day 16 part 1 execution Time : {end_time - start_time:0.6f}s")
+    #
+    # start_time = time.perf_counter()
+    # print("day 17 part 1: {}".format(day17.part1(2017,2017,335)))
+    # print("day 17 part 1: {}".format(day17.part2(2017,2017,335)))
+    # end_time = time.perf_counter()
+    # print(f"Day 17 part 1 execution Time : {end_time - start_time:0.6f}s")
+    # # print("day 17 part 2: {}".format(day17.part2(50000000,0,335)))
 
     day18_input = "./data/day18_input.txt"
     print("day 18 part 1: {}".format(day18.part1(day18_input)))
     print("day 18 part 2: {}".format(day18.part2(day18_input)))
+
+    day19_input = "./data/day19_input.txt"
+    print("day 19 part 1: {}".format(day19.part1(day19_input)))
+    print("day 19 part 2: {}".format(day19.part2(day19_input)))
