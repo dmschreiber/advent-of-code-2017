@@ -17,6 +17,7 @@ import day17
 import day18
 import day19
 import day20
+import day21
 
 class MyTestCase(unittest.TestCase):
     # def test_day4(self):
@@ -143,6 +144,17 @@ class MyTestCase(unittest.TestCase):
     def test_day20(self):
         input = "./data/day20_test.txt"
         day20.part2(input)
+
+    def test_day21(self):
+        input = "./data/day21_test.txt"
+        self.assertEqual(day21.part1(input, 2),12)
+
+        # pattern = day21.starting_pattern
+        # self.assertTrue(day21.compare(pattern,day21.rotate2(day21.rotate2(day21.rotate2(day21.rotate2(pattern))))))
+        # self.assertTrue(day21.compare(pattern,day21.flip(day21.flip(pattern))))
+        # self.assertTrue(day21.compare(pattern,day21.flip2(day21.flip2(pattern))))
+        # self.assertTrue(day21.compare(pattern,day21.rotate(day21.rotate(pattern))))
+        # self.assertTrue(False== day21.compare(pattern,day21.rotate2(pattern)))
 
 if __name__ == '__main__':
     unittest.main()
