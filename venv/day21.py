@@ -38,6 +38,7 @@ def print_tile(state):
                 print(".",end="")
         print()
 
+
 def extract_tile(state,size,i,j):
     start_row = i * size
     start_col = j * size
@@ -108,34 +109,43 @@ def total_on(tile):
 def match_rule(tile,map):
     ret_val = []
 
+    index = 0
     for m in map:
+        index = index + 1
         if len(m[0]) == len(tile) and total_on(m[0]) == total_on(tile):
             possible_tile = tile
 
             for angles in range(4):
                 if compare(m[0],possible_tile):
                     match_output = m[1]
-                    print("match!")
+                    # print("match rotated {}!".format(angles))
+                    # print_tile(possible_tile)
                     if len(ret_val) == 0:
                         ret_val.append(match_output)
-                    else:
-                        print("already added")
+                        print("{}: {} => {}".format(index,m[0], m[1]))
+
+                    # else:
+                    #     print("already added")
 
                 elif compare(m[0],flip(possible_tile)):
                     match_output = m[1]
-                    print("match!")
+                    # print("match flip rotated {}!".format(angles))
+                    # print_tile(flip(possible_tile))
                     if len(ret_val) == 0:
                         ret_val.append(match_output)
-                    else:
-                        print("already added")
+                        print("{}: {} => {}".format(index,m[0], m[1]))
+                    # else:
+                    #     print("already added")
 
                 elif compare(m[0],flip2(possible_tile)):
                     match_output =m[1]
-                    print("match!")
+                    # print("match flip2 rotated {}!".format(angles))
+                    # print_tile(flip2(possible_tile))
                     if len(ret_val) == 0:
                         ret_val.append(match_output)
-                    else:
-                        print("already added")
+                        print("{}: {} => {}".format(index,m[0], m[1]))
+                    # else:
+                    #     print("already added")
 
                 possible_tile = rotate2(possible_tile)
 
@@ -149,25 +159,27 @@ def match_rule(tile,map):
 def perform_mapping(state,map):
 
     size = 3
-    if len(state)/3 == int(len(state)/3):
-        size = 3
-    else:
+    if len(state)/2 == int(len(state)/2):
         size = 2
+    else:
+        size = 3
+
+    print("Size {}".format(size))
 
     units = int(len(state)/size)
     output_tile = []
-    print("state")
-    print_tile(state)
+    # print("state")
+    # print_tile(state)
 
     for i in range(units):
         output_tile.append([])
         for j in range (units):
             tile = extract_tile(state,size,i,j)
-            print("tile {},{}".format(i,j))
-            print_tile(tile)
+            # print("tile {},{}".format(i,j))
+            # print_tile(tile)
             output_tile[i].append(match_rule(tile, map))
 
-    print("output tile {}".format(output_tile))
+    # print("output tile {}".format(output_tile))
 
     output = []
 
@@ -197,15 +209,11 @@ def part1(input, iterations):
         # print(start,end)
         maps.append((start,end))
 
+    print_tile(state)
     for i in range(iterations):
         print("Iteration {}".format(i))
         state = perform_mapping(state, maps)
 
-    count = 0
-    for i in range(len(state)):
-        for j in range(len(state)):
-            if state[i][j]:
-                count = count + 1
+    return total_on(state)
 
-    return count
 # 131 is too low (out of 256)
