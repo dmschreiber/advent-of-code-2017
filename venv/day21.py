@@ -122,7 +122,6 @@ def match_rule(tile,map):
                     # print_tile(possible_tile)
                     if len(ret_val) == 0:
                         ret_val.append(match_output)
-                        print("{}: {} => {}".format(index,m[0], m[1]))
 
                     # else:
                     #     print("already added")
@@ -133,7 +132,6 @@ def match_rule(tile,map):
                     # print_tile(flip(possible_tile))
                     if len(ret_val) == 0:
                         ret_val.append(match_output)
-                        print("{}: {} => {}".format(index,m[0], m[1]))
                     # else:
                     #     print("already added")
 
@@ -143,7 +141,6 @@ def match_rule(tile,map):
                     # print_tile(flip2(possible_tile))
                     if len(ret_val) == 0:
                         ret_val.append(match_output)
-                        print("{}: {} => {}".format(index,m[0], m[1]))
                     # else:
                     #     print("already added")
 
@@ -192,7 +189,7 @@ def perform_mapping(state,map):
 
                     output[i*(size+1)+inner_i].append(output_tile[i][j][inner_i][inner_j])
 
-    print_tile(output)
+    # print_tile(output)
     return output
 
 def part1(input, iterations):
