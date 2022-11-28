@@ -22,6 +22,7 @@ import day21
 import day22
 import day23
 import day24
+import day25
 
 import time
 
@@ -126,3 +127,6 @@ if __name__ == '__main__':
     input = "./data/day24_input.txt"
     # print("day 24 part 1: {}".format(day24.part1(input)))
     print("day 24 part 2: {}".format(day24.part2(input)))
+
+    input = "./data/day25_input.txt"
+    print("day 25 part 1: {}".format(day25.part1(input)))
