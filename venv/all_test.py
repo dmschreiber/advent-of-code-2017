@@ -20,6 +20,7 @@ import day20
 import day21
 import day22
 import day23
+import day24
 
 class MyTestCase(unittest.TestCase):
     # def test_day4(self):
@@ -186,6 +187,11 @@ class MyTestCase(unittest.TestCase):
 
         day23.exec("mul a 5",map)
         self.assertEqual(map["a"],5)
+
+    def test_day24(self):
+        input = "./data/day24_test.txt"
+        self.assertEqual(day24.part1(input),31)
+        self.assertEqual(day24.part2(input),19)
 
 if __name__ == '__main__':
     unittest.main()
